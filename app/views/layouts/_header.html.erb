@@ -28,9 +28,7 @@
           <span class="sr-only">Open menu</span>
           <!--
             Icon when menu is closed.
-
             Heroicon name: outline/menu
-
             Menu open: "hidden", Menu closed: "block"
           -->
           <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -38,9 +36,7 @@
           </svg>
           <!--
             Icon when menu is open.
-
             Heroicon name: outline/x
-
             Menu open: "block", Menu closed: "hidden"
           -->
           <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -68,7 +64,6 @@
 
           <!--
             Dropdown menu, show/hide based on menu state.
-
             Entering: "transition ease-out duration-100"
               From: "transform opacity-0 scale-95"
               To: "transform opacity-100 scale-100"
@@ -77,25 +72,30 @@
               To: "transform opacity-0 scale-95"
           -->
           <div
-           class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 focus:outline-none"
-           id="menu-dropdown-items"
-           role="menu"
-           aria-orientation="vertical"
-           aria-labelledby="user-menu-button"
-           tabindex="-1"
-           data-transition-enter="transition ease-out duration-100"
-           data-transition-enter-start="transform opacity-0 scale-95"
-           data-transition-enter-end="transform opacity-100 scale-100"
-           data-transition-leave="transition ease-in duration-75"
-           data-transition-leave-start="transform opacity-100 scale-100"
-           data-transition-leave-end="transform opacity-0 scale-95"
+            class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 focus:outline-none divide-y divide-gray-100"
+            id="menu-dropdown-items"
+            role="menu"
+            aria-orientation="vertical"
+            aria-labelledby="user-menu-button"
+            tabindex="-1"
+            data-transition-enter="transition ease-out duration-100"
+            data-transition-enter-start="transform opacity-0 scale-95"
+            data-transition-enter-end="transform opacity-100 scale-100"
+            data-transition-leave="transition ease-in duration-75"
+            data-transition-leave-start="transform opacity-100 scale-100"
+            data-transition-leave-end="transform opacity-0 scale-95"
           >
             <!-- Active: "bg-gray-100", Not Active: "" -->
-            <a href="#" class="block py-2 px-4 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+            <div class="py-1" role="none">
+              <a href="#" data-header-target="userAuthLink" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-0">Sign Up</a>
+              <a href="#" data-header-target="userAuthLink" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-1">Log in</a>
+            </div>
 
-            <a href="#" class="block py-2 px-4 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-
-            <a href="#" class="block py-2 px-4 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+            <div class="py-1" role="none">
+              <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-0">Tutor at home</a>
+              <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-1">Tutor online</a>
+              <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-1">Help</a>
+            </div>
           </div>
         </div>
       </div>
@@ -131,3 +131,5 @@
     </div>
   </nav>
 </header>
+
+<%= render "shared/modal" %>
