@@ -2,5 +2,6 @@
 
 class HomeController < ApplicationController
   def index
+    @tutors = Tutor.all
   end
 end

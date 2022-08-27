@@ -1,1 +1,12 @@
-<p>Hello World</p>
+<div class="flex">
+  <% @tutors.each do |tutor| %>
+    <div>
+      <p><%= tutor.name %></p>
+      <p><%= tutor.headline %></p>
+      <p><%= tutor.description %></p>
+      <p><%= tutor.city %></p>
+      <p><%= tutor.state %></p>
+      <p><%= tutor.country %></p>
+    </div>
+  <% end %>
+</div>
