@@ -11,4 +11,9 @@
   )
 
   tutor.images.attach(io: File.open(Rails.root.join("db", "sample", "images", "tutor_#{i + 1}.png")), filename: tutor.name)
+
+
+  (1..5).to_a.sample.times do
+    Review.create(reviewable: tutor, rating: (1..5).to_a.sample, title: Faker::Lorem.word, body: Faker::Lorem.paragraph)
+  end
 end

@@ -14,13 +14,18 @@ class Tutor < ApplicationRecord
 
   has_many_attached :images, dependent: :destroy
 
+  has_many :reviews, as: :reviewable
+
   def address
     # [address_1, address_2, city, state, country].compact.join(', ')
     [state, country].compact.join(', ')
   end
 
-
   def default_image
     images.first
+  end
+
+  def average_rating
+    reviews.average(:rating)
   end
 end
