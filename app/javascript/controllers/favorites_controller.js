@@ -24,7 +24,8 @@ export default class extends Controller {
     return `/api/favorites/${favoriteId}`
   }
 
-  favoriteTutor() {
+  favoriteTutor(e) {
+    e.preventDefault();
     axios.post(this.getFavoritePath(), {
       user_id: this.element.dataset.userId,
       tutor_id: this.element.dataset.tutorId
@@ -34,17 +35,18 @@ export default class extends Controller {
     .then((response) => {
       this.element.dataset.favorited = 'true'
       this.element.dataset.favoriteId = response.data.id;
-      this.element.setAttribute('fill', 'red');
+      this.element.setAttribute('fill', this.element.dataset.favoritedColor);
     });
   }
 
   unfavoriteTutor() {
+    e.preventDefault();
     axios.delete(this.getUnfavoritePath(this.element.dataset.favoriteId), {
       headers: this.HEADERS
     }).then((response) => {
       this.element.dataset.favorited = 'false'
       this.element.dataset.favoriteId = '';
-      this.element.setAttribute('fill', '#ced4da');
+      this.element.setAttribute('fill', this.element.dataset.unfavoritedColor);
     });
   }
 }
