@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_20_180906) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_20_183838) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,6 +67,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_20_180906) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "reservations", force: :cascade do |t|
+    t.bigint "tutor_id", null: false
+    t.bigint "user_id", null: false
+    t.date "reservation_date", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tutor_id", "user_id", "reservation_date"], name: "idx_reserv_on_tutor_id_and_user_id_and_reserv_date", unique: true
+    t.index ["tutor_id"], name: "index_reservations_on_tutor_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -116,4 +127,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_20_180906) do
   add_foreign_key "favorites", "tutors"
   add_foreign_key "favorites", "users"
   add_foreign_key "profiles", "users"
+  add_foreign_key "reservations", "tutors"
+  add_foreign_key "reservations", "users"
 end

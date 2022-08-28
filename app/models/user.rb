@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
          has_many :favorites, dependent: :destroy
          has_many :favorited_tutors, through: :favorites, source: :tutor
+         has_many :reservations, dependent: :destroy
+         has_many :reserved_tutors, through: :reservations, source: :tutor
 
          after_create :create_profile
          def create_profile
