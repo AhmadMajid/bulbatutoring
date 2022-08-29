@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   resources :tutors, only: :show do
     resources :reservations, only: :new, controller: "tutors/reservations"
   end
+
+  resources :reservation_payments, only: :create
 end
