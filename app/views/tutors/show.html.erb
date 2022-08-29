@@ -279,5 +279,5 @@
   </div>
 </div>
 
-<%= render "shared/modal", modal_trigger_id: "share-modal-trigger", modal_content: "tutors/share_tutor" %>
-<%= render "shared/modal", modal_trigger_id: "tutor-description-trigger", modal_content: "tutors/tutor_description" %>
+<%= render "shared/modal", modal_trigger_id: "share-modal-trigger", modal_content: "tutors/share_tutor", content_params: { tutor: @tutor } %>
+<%= render "shared/modal", modal_trigger_id: "tutor-description-trigger", modal_content: "tutors/tutor_description", content_params: { tutor: @tutor } %>
