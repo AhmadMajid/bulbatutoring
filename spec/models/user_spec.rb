@@ -6,4 +6,5 @@ RSpec.describe User, type: :model do
   it { should have_many(:favorited_tutors).through(:favorites).source(:tutor) }
   it { should have_many(:reservations).dependent(:destroy) }
   it { should have_many(:reserved_tutors).through(:reservations).source(:tutor) }
+  it { should have_many(:reviews).dependent(:destroy) }
 end
