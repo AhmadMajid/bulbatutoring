@@ -6,6 +6,7 @@ module Host
 
     def index
       authorize current_user, policy_class: HostPolicy
+      @tutors = current_user.tutors
     end
   end
 end

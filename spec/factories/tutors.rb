@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :tutor do
+    user
     name { "MyString" }
     headline { "MyString" }
     description { "MyText" }

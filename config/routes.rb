@@ -30,6 +30,6 @@ Rails.application.routes.draw do
   namespace :host do
     get "/dashboard" => "dashboard#index", as: :dashboard
 
-    resources :tutors, only: :new
+    resources :tutors, only: [:new, :create]
   end
 end

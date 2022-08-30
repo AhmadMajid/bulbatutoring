@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :payments, through: :reservations
   has_many :reserved_tutors, through: :reservations, source: :tutor
   has_many :reviews, dependent: :destroy
+  has_many :tutors, dependent: :destroy
 
   ROLES = %w[host]
 
