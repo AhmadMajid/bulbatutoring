@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Tutors::Search", type: :request do
-  let(:tutors) { create_list(:property, 3) }
+  let(:tutors) { create_list(:tutor, 3) }
 
   describe "GET index" do
     it "succeeds" do
