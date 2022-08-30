@@ -17,7 +17,7 @@ gem "puma", "~> 5.0"
 gem "pundit"
 gem "rails", "~> 7.0.3"
 gem "redis", "~> 4.0"
-gem "sassc-rails" # Use Sass to process CSS
+# gem "sassc-rails" # Use Sass to process CSS
 gem "sprockets-rails"
 gem "stimulus-rails"
 gem "stripe-rails"
