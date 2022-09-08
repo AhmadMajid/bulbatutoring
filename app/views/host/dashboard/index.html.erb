@@ -14,6 +14,7 @@
         </div>
         <div class="bg-white shadow overflow-hidden sm:rounded-md">
           <ul role="list" class="divide-y divide-gray-200">
+            <% unless Tutor.count.zero? %>
             <% @tutors.each do |tutor| %>
               <li>
                 <%= link_to tutor_path(tutor), class: "block hover:bg-gray-50" do %>
@@ -56,6 +57,7 @@
                 <% end %>
               </li>
             <% end %>
+            <% end%>
           </ul>
         </div>
       </div>
