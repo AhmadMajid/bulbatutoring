@@ -25,7 +25,7 @@ module Host
     def tutor_params
       params.require(:tutor).permit(
         :name, :headline, :description, :images, :address_1, :address_2, :city,
-        :state, :zip_code, :country_code
+        :state, :zip_code, :country_code, :price_cents
       )
     end
   end
