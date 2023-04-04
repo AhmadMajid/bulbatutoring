@@ -5,6 +5,7 @@ ruby "3.1.1"
 
 gem "bootsnap", require: false # Reduces boot times through caching; required in config/boot.rb
 gem "country_select", "~> 6.0"
+gem "delayed_job_active_record"
 gem "devise"
 gem "geocoder"
 gem "jbuilder"

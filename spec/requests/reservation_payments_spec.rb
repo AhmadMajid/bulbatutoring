@@ -17,24 +17,14 @@ RSpec.describe "ReservationPayments", type: :request do
     }
   end
 
-  before do
-    sign_in user
-    allow(Stripe::Customer).to receive(:retrieve).and_return(double(id: "user_id"))
-    allow(Stripe::Customer).to receive(:create_source).and_return(double(id: "card_id"))
-    allow(Stripe::Charge).to receive(:create).and_return(double(id: "charge_id"))
-  end
+  before { sign_in user }
 
   describe "POST create" do
-    it "succeeds in creating a reservation" do
-      expect {
-        post reservation_payments_path, params: payment_params
-      }.to change { Reservation.count }.by(1)
-    end
-
-    it "succeeds in creating a payment" do
-      expect {
-        post reservation_payments_path, params: payment_params
-      }.to change { Payment.count }.by(1)
+    it "queues up the ReservationPaymentJob" do
+      allow(ReservationPaymentJob).to receive(:perform_later).and_return(true)
+      expect(ReservationPaymentJob).to receive(:perform_later)
+      post reservation_payments_path, params: payment_params
+      expect(response).to be_redirect
     end
   end
 end
