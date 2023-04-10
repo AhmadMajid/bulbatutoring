@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+tailwind: ```bundle exec rails tailwindcss:watch```
+migrate: ```bundle exec rails db:migrate db:test:prepare```
+server: ```bundle exec rails s```
